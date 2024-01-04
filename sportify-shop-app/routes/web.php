@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -31,6 +32,9 @@ Route::resource('products', ProductController::class)
     ->only(['index', 'store', 'update', 'destroy'])
     ->names('products');
 
+Route::resource('categories', CategoryController::class)
+    ->only(['index', 'store', 'update', 'destroy'])
+    ->names('categories');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
